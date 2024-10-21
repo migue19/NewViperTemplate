@@ -8,47 +8,38 @@
 
 import Foundation
 import UIKit
-
+// PRESENTER -> VIEW
 protocol ___VARIABLE_ModuleName___ViewProtocol: AnyObject {
-    // PRESENTER -> VIEW
     var presenter: ___VARIABLE_ModuleName___PresenterProtocol? { get set }
 }
-
+// PRESENTER -> ROUTER
 protocol ___VARIABLE_ModuleName___RouterProtocol: AnyObject {
-    // PRESENTER -> WIREFRAME
     var view: ___VARIABLE_ModuleName___View? { get set }
     static func create___VARIABLE_ModuleName___Module() -> UIViewController
 }
-
+// VIEW -> PRESENTER
 protocol ___VARIABLE_ModuleName___PresenterProtocol: AnyObject {
-    // VIEW -> PRESENTER
     var view: ___VARIABLE_ModuleName___ViewProtocol? { get set }
     var interactor: ___VARIABLE_ModuleName___InteractorInputProtocol? { get set }
     var router: ___VARIABLE_ModuleName___RouterProtocol? { get set }
     
     func viewDidLoad()
 }
-
+// INTERACTOR -> PRESENTER
 protocol ___VARIABLE_ModuleName___InteractorOutputProtocol: AnyObject {
-    // INTERACTOR -> PRESENTER
 }
-
+// PRESENTER -> INTERACTOR
 protocol ___VARIABLE_ModuleName___InteractorInputProtocol: AnyObject {
-    // PRESENTER -> INTERACTOR
     var presenter: ___VARIABLE_ModuleName___InteractorOutputProtocol? { get set }
     var remoteDatamanager: ___VARIABLE_ModuleName___RemoteDataManagerInputProtocol? { get set }
 }
-
+// INTERACTOR -> DATAMANAGER
 protocol ___VARIABLE_ModuleName___DataManagerInputProtocol: AnyObject {
-    // INTERACTOR -> DATAMANAGER
 }
-
+// INTERACTOR -> REMOTEDATAMANAGER
 protocol ___VARIABLE_ModuleName___RemoteDataManagerInputProtocol: AnyObject {
-    // INTERACTOR -> REMOTEDATAMANAGER
     var remoteRequestHandler: ___VARIABLE_ModuleName___RemoteDataManagerOutputProtocol? { get set }
 }
-
+// REMOTEDATAMANAGER -> INTERACTOR
 protocol ___VARIABLE_ModuleName___RemoteDataManagerOutputProtocol: AnyObject {
-    // REMOTEDATAMANAGER -> INTERACTOR
 }
-
